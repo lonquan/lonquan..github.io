@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 | 半壁峰林-龙权的自留地</title>
+<title>记录 js 的自执行方式 | 半壁峰林-龙权的自留地</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -32,14 +32,8 @@
 
 
 
-    <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
-
-🏠 关于本站
-👨‍💻 博主是谁
-⛹ 兴趣爱好
-📬 联系我呀
-..." />
+    <meta name="description" content="// Either of the following two patterns can be used to immediately invoke
+  // a function expression, utilizing the func..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -121,17 +115,42 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于</h2>
-            <div class="post-date">2019-01-25</div>
+            <h2 class="post-title">记录 js 的自执行方式</h2>
+            <div class="post-date">2016-03-25</div>
             
             <div class="post-content" v-pre>
-              <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+              <pre><code class="language-javascript">// Either of the following two patterns can be used to immediately invoke
+  // a function expression, utilizing the function's execution context to
+  // create &quot;privacy.&quot;
+
+  (function(){ /* code */ }()); // Crockford recommends this one
+  (function(){ /* code */ })(); // But this one works just as well
+
+  // Because the point of the parens or coercing operators is to disambiguate
+  // between function expressions and function declarations, they can be
+  // omitted when the parser already expects an expression (but please see the
+  // &quot;important note&quot; below).
+
+  var i = function(){ return 10; }();
+  true &amp;&amp; function(){ /* code */ }();
+  0, function(){ /* code */ }();
+
+  // If you don't care about the return value, or the possibility of making
+  // your code slightly harder to read, you can save a byte by just prefixing
+  // the function with a unary operator.
+
+  !function(){ /* code */ }();
+  ~function(){ /* code */ }();
+  -function(){ /* code */ }();
+  +function(){ /* code */ }();
+
+  // Here's another variation, from @kuvos - I'm not sure of the performance
+  // implications, if any, of using the `new` keyword, but it works.
+  // http://twitter.com/kuvos/status/18209252090847232
+
+  new function(){ /* code */ }
+  new function(){ /* code */ }() // Only need parens if passing arguments
+</code></pre>
 
             </div>
             

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 | 半壁峰林-龙权的自留地</title>
+<title>Redis 的数据导入导出 | 半壁峰林-龙权的自留地</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -32,14 +32,11 @@
 
 
 
-    <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
+    <meta name="description" content="开启现有 Redis 实例的 AOF 功能（如果实例已经启用 AOF 功能则忽略此步骤）
 
-🏠 关于本站
-👨‍💻 博主是谁
-⛹ 兴趣爱好
-📬 联系我呀
-..." />
+# redis-cli -h ip -p port config set appendonly yes `
+
+通过AOF文件将数据导入到新的 Red..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -121,20 +118,54 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于</h2>
-            <div class="post-date">2019-01-25</div>
+            <h2 class="post-title">Redis 的数据导入导出</h2>
+            <div class="post-date">2016-03-26</div>
             
             <div class="post-content" v-pre>
-              <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
+              <p>开启现有 Redis 实例的 AOF 功能（<em>如果实例已经启用 AOF 功能则忽略此步骤</em>）</p>
+<blockquote>
+<p># redis-cli -h ip -p port config set appendonly yes `</p>
 </blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+<p>通过AOF文件将数据导入到新的 Redis 实例 (假定生成的 AOF 文件名为 append.aof)</p>
+<blockquote>
+<p># redis-cli -h ip -p 6379 -a pass --pipe &lt; appendonly.aof</p>
+</blockquote>
+<p>####append.aof 文件分析<br>
+假设 redis 内存有「name:Jhon」的键值对，那么进行 AOF 持久化后，AOF 文件有如下内容：</p>
+<p><code>*2 # 2个参数 $6 # 第一个参数长度为 6 SELECT # 第一个参数 $1 # 第二参数长度为 1 8 # 第二参数 *3 # 3个参数 $3 # 第一个参数长度为 4 SET # 第一个参数 $4 # 第二参数长度为 4 name # 第二个参数 $4 # 第三个参数长度为 4 Jhon # 第二参数长度为 4</code><br>
+所以对上面的内容进行恢复，能得到熟悉的一条 redis 命令：SELECT 8;SET name Jhon.<br>
+可以想象的是，redis 遍历内存数据集中的每个 key-value 对，依次写入磁盘中；redis 启动的时候，从 AOF 文件中读取数据，恢复数据。</p>
+<p>修改</p>
+<p>*2     # 2个参数<br>
+$6     # 第一个参数长度为 6<br>
+SELECT     # 第一个参数<br>
+$1     # 第二参数长度为 1<br>
+8     # 第二参数</p>
+<p>为</p>
+<p>*2     # 2个参数<br>
+$6     # 第一个参数长度为 6<br>
+SELECT     # 第一个参数<br>
+$2    # 第二参数长度为 1<br>
+15    # 第二参数</p>
+<p>可以将 数据导入到 15号 db</p>
+<blockquote>
+<p>可能会有多个 select DB, 需要仔细查看</p>
+</blockquote>
+<blockquote>
+<p>redis-cli -h 127.0.0.1 -p 6379 shutdown  停止 redis</p>
+</blockquote>
 
             </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://lonquan.github.io/post/js-immediately-invoke/">
+                  <h3 class="post-title">
+                    记录 js 的自执行方式
+                  </h3>
+                </a>
+              </div>
             
 
             
