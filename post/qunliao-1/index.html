@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>记录 js 的自执行方式 | 半壁峰林-龙权的自留地</title>
+<title>群聊记事(Json 验证/命名方式/closure $this/多维数组去重/清除数据) | 半壁峰林-龙权的自留地</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -32,8 +32,15 @@
 
 
 
-    <meta name="description" content="// Either of the following two patterns can be used to immediately invoke
-  // a function expression, utilizing the func..." />
+    <meta name="description" content="
+Json 格式验证
+
+
+昨天是谁验证 json 格式来着, json_decode 的时候, 如果传入的是整形, 是直接返回 对应的值, 所以判断是不是, 还是得 is_object 跟 is_array 吧
+
+littlehz
+
+如果是..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -115,45 +122,113 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">记录 js 的自执行方式</h2>
-            <div class="post-date">2016-03-25</div>
+            <h2 class="post-title">群聊记事(Json 验证/命名方式/closure $this/多维数组去重/清除数据)</h2>
+            <div class="post-date">2016-06-05</div>
+            
+              <div class="feature-container" style="background-image: url('https://lonquan.github.io/post-images/qunliao-1.png')">
+              </div>
             
             <div class="post-content" v-pre>
-              <pre><code class="language-javascript">// Either of the following two patterns can be used to immediately invoke
-  // a function expression, utilizing the function's execution context to
-  // create &quot;privacy.&quot;
+              <ol>
+<li>Json 格式验证</li>
+</ol>
+<blockquote>
+<p>昨天是谁验证 json 格式来着, json_decode 的时候, 如果传入的是整形, 是直接返回 对应的值, 所以判断是不是, 还是得 is_object 跟 is_array 吧</p>
+</blockquote>
+<h4 id="littlehz">littlehz</h4>
+<blockquote>
+<p>如果是内部函数调用，就不应该设计成参数是json串。如果是对外的API，接收php://input raw数据，那就粗略检查下是否以 { 开头, } 结尾就行。API的设计不可能没有key 而直接传数组或者数字或者boolean的</p>
+</blockquote>
+<h4 id="abraham">Abraham</h4>
+<blockquote>
+<p>return !is_numeric(<span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;&amp;&#039; at position 6: str) &amp;̲&amp; null !== json…'>str) &amp;&amp; null !== json_decode(</span>str)</p>
+</blockquote>
+<ol start="2">
+<li>命名方式</li>
+</ol>
+<blockquote>
+<p>数组下划线的原因主要是为了json, 与mysql字段保持一致, 函数也是下划线命名,与php内置函数一样, 方法与类名其它都驼峰</p>
+</blockquote>
+<ol start="3">
+<li>closure $this</li>
+</ol>
+<pre><code class="language-php">class Demo{
+    public function test(){
+        $var = 'var';
+        call_user_func(function(){
+            var_dump($this);
+            //var_dump($var);
+        });
+    }
+}
 
-  (function(){ /* code */ }()); // Crockford recommends this one
-  (function(){ /* code */ })(); // But this one works just as well
-
-  // Because the point of the parens or coercing operators is to disambiguate
-  // between function expressions and function declarations, they can be
-  // omitted when the parser already expects an expression (but please see the
-  // &quot;important note&quot; below).
-
-  var i = function(){ return 10; }();
-  true &amp;&amp; function(){ /* code */ }();
-  0, function(){ /* code */ }();
-
-  // If you don't care about the return value, or the possibility of making
-  // your code slightly harder to read, you can save a byte by just prefixing
-  // the function with a unary operator.
-
-  !function(){ /* code */ }();
-  ~function(){ /* code */ }();
-  -function(){ /* code */ }();
-  +function(){ /* code */ }();
-
-  // Here's another variation, from @kuvos - I'm not sure of the performance
-  // implications, if any, of using the `new` keyword, but it works.
-  // http://twitter.com/kuvos/status/18209252090847232
-
-  new function(){ /* code */ }
-  new function(){ /* code */ }() // Only need parens if passing arguments
+(new Demo)-&gt;test();
 </code></pre>
+<p>打印 $this 的时候, 可以打印该对象本身, $var, 就需要 use 才能使用.</p>
+<p>php 的 closure，里面变量作用域，是 “定义时” 代码所在的作用域。<br>
+是否这样理解, $this 的作用域是整个 object, 只要是整个 object 的里, $this 都表示 object 本身, 不论是否在闭包中?</p>
+<h4 id="tomoe-大神">tomoe 大神</h4>
+<p>還有一點是 closure 中的 $this 在 php5.3 版本是不支援的，會出錯，5.4 以後才支援，至於 $this 是不是都表示 object 本身還是有一些奇特方法會造成其 context (上下文)改變，例如</p>
+<pre><code class="language-php">class A {
+    public $value = &quot;A&quot;; 
+    function getClosure() {
+        return function() {
+            echo $this-&gt;value, &quot;\n&quot;; 
+        }; 
+    }
+}
+
+class B {
+    public $value = &quot;B&quot;;
+}
+$a = new A();
+$b = new B();
+
+call_user_func($a-&gt;getClosure()); // 顯示 A
+call_user_func($a-&gt;getClosure()-&gt;bindTo($b, $b)); // 顯示 B
+</code></pre>
+<p>bindTo 會改變 closure 的 context</p>
+<ol start="4">
+<li>php 多维数组去重</li>
+</ol>
+<pre><code class="language-php">function super_unique($array, $recursion = false){
+    // 序列化数组元素,去除重复
+    $result = array_map('unserialize', array_unique(array_map('serialize', $array))); 
+   // 递归调用
+    if ($recursion) {
+        foreach ($result as $key =&gt; $value) {
+            if (is_array($value)) {
+                $result[ $key ] = super_unique($value);
+           }
+        }
+    }
+    return $result;
+}
+</code></pre>
+<h4 id="已知问题">已知问题</h4>
+<blockquote>
+<p>递归处理的时候, 如果是关联数组并且有不同的 key 有相同的 value 的时候, 会被去除一个</p>
+</blockquote>
+<ol start="5">
+<li>清楚数据</li>
+</ol>
+<pre><code class="language-bash">dd if=/dev/zero of=/dev/sda bs=16M
+</code></pre>
+<blockquote>
+<p>万一给下一个租户用了能找回数据呢？已经重置系统、重置硬盘，再填0数据的。试了下直接填 /dev/urandom 随机数据太慢。</p>
+</blockquote>
 
             </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://lonquan.github.io/post/redis-de-shu-ju-dao-ru-dao-chu/">
+                  <h3 class="post-title">
+                    Redis 的数据导入导出
+                  </h3>
+                </a>
+              </div>
             
 
             

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lonquan.github.io</id>
     <title>半壁峰林-龙权的自留地</title>
-    <updated>2020-03-01T19:57:17.182Z</updated>
+    <updated>2020-03-02T10:12:08.036Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lonquan.github.io"/>
     <link rel="self" href="https://lonquan.github.io/atom.xml"/>
@@ -10,6 +10,102 @@
     <logo>https://lonquan.github.io/images/avatar.png</logo>
     <icon>https://lonquan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 半壁峰林-龙权的自留地</rights>
+    <entry>
+        <title type="html"><![CDATA[群聊记事(Json 验证/命名方式/closure $this/多维数组去重/清除数据)]]></title>
+        <id>https://lonquan.github.io/post/qunliao-1/</id>
+        <link href="https://lonquan.github.io/post/qunliao-1/">
+        </link>
+        <updated>2016-06-05T09:57:47.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>Json 格式验证</li>
+</ol>
+<blockquote>
+<p>昨天是谁验证 json 格式来着, json_decode 的时候, 如果传入的是整形, 是直接返回 对应的值, 所以判断是不是, 还是得 is_object 跟 is_array 吧</p>
+</blockquote>
+<h4 id="littlehz">littlehz</h4>
+<blockquote>
+<p>如果是内部函数调用，就不应该设计成参数是json串。如果是对外的API，接收php://input raw数据，那就粗略检查下是否以 { 开头, } 结尾就行。API的设计不可能没有key 而直接传数组或者数字或者boolean的</p>
+</blockquote>
+<h4 id="abraham">Abraham</h4>
+<blockquote>
+<p>return !is_numeric(<span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;&amp;&#039; at position 6: str) &amp;̲&amp; null !== json…'>str) &amp;&amp; null !== json_decode(</span>str)</p>
+</blockquote>
+<ol start="2">
+<li>命名方式</li>
+</ol>
+<blockquote>
+<p>数组下划线的原因主要是为了json, 与mysql字段保持一致, 函数也是下划线命名,与php内置函数一样, 方法与类名其它都驼峰</p>
+</blockquote>
+<ol start="3">
+<li>closure $this</li>
+</ol>
+<pre><code class="language-php">class Demo{
+    public function test(){
+        $var = 'var';
+        call_user_func(function(){
+            var_dump($this);
+            //var_dump($var);
+        });
+    }
+}
+
+(new Demo)-&gt;test();
+</code></pre>
+<p>打印 $this 的时候, 可以打印该对象本身, $var, 就需要 use 才能使用.</p>
+<p>php 的 closure，里面变量作用域，是 “定义时” 代码所在的作用域。<br>
+是否这样理解, $this 的作用域是整个 object, 只要是整个 object 的里, $this 都表示 object 本身, 不论是否在闭包中?</p>
+<h4 id="tomoe-大神">tomoe 大神</h4>
+<p>還有一點是 closure 中的 $this 在 php5.3 版本是不支援的，會出錯，5.4 以後才支援，至於 $this 是不是都表示 object 本身還是有一些奇特方法會造成其 context (上下文)改變，例如</p>
+<pre><code class="language-php">class A {
+    public $value = &quot;A&quot;; 
+    function getClosure() {
+        return function() {
+            echo $this-&gt;value, &quot;\n&quot;; 
+        }; 
+    }
+}
+
+class B {
+    public $value = &quot;B&quot;;
+}
+$a = new A();
+$b = new B();
+
+call_user_func($a-&gt;getClosure()); // 顯示 A
+call_user_func($a-&gt;getClosure()-&gt;bindTo($b, $b)); // 顯示 B
+</code></pre>
+<p>bindTo 會改變 closure 的 context</p>
+<ol start="4">
+<li>php 多维数组去重</li>
+</ol>
+<pre><code class="language-php">function super_unique($array, $recursion = false){
+    // 序列化数组元素,去除重复
+    $result = array_map('unserialize', array_unique(array_map('serialize', $array))); 
+   // 递归调用
+    if ($recursion) {
+        foreach ($result as $key =&gt; $value) {
+            if (is_array($value)) {
+                $result[ $key ] = super_unique($value);
+           }
+        }
+    }
+    return $result;
+}
+</code></pre>
+<h4 id="已知问题">已知问题</h4>
+<blockquote>
+<p>递归处理的时候, 如果是关联数组并且有不同的 key 有相同的 value 的时候, 会被去除一个</p>
+</blockquote>
+<ol start="5">
+<li>清楚数据</li>
+</ol>
+<pre><code class="language-bash">dd if=/dev/zero of=/dev/sda bs=16M
+</code></pre>
+<blockquote>
+<p>万一给下一个租户用了能找回数据呢？已经重置系统、重置硬盘，再填0数据的。试了下直接填 /dev/urandom 随机数据太慢。</p>
+</blockquote>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Redis 的数据导入导出]]></title>
         <id>https://lonquan.github.io/post/redis-de-shu-ju-dao-ru-dao-chu/</id>
