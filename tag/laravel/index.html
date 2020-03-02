@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>MySQL 存储过程 | 半壁峰林-龙权的自留地</title>
+<title>Laravel | 半壁峰林-龙权的自留地</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -17,13 +17,6 @@
 <link rel="stylesheet" href="https://lonquan.github.io/styles/main.css">
 
 
-  
-    <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" /> -->
-    <link href="https://cdn.bootcss.com/gitalk/1.6.2/gitalk.min.css" rel="stylesheet">
-  
-
-  
-
 
 <link href="https://cdn.bootcss.com/aos/3.0.0-beta.6/aos.css" rel="stylesheet">
 <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
@@ -32,14 +25,7 @@
 
 
 
-    <meta name="description" content="##创建存储过程
-####删除已经存在的存储过程A
-drop procedure if exists procedure_name;
-
-设置分割符
-DELIMITER //
-create procedure procedure_name(I..." />
-    <meta name="keywords" content="" />
+    <meta name="description" content="半壁峰林-龙权的自留地">
   </head>
   <body>
     <div id="app" class="main">
@@ -119,66 +105,49 @@ create procedure procedure_name(I..." />
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">MySQL 存储过程</h2>
-            <div class="post-date">2016-07-02</div>
-            
-            <div class="post-content" v-pre>
-              <p>##创建存储过程</p>
-<p>####删除已经存在的存储过程A</p>
-<pre><code class="language-php">drop procedure if exists procedure_name;
-</code></pre>
-<h4 id="设置分割符">设置分割符</h4>
-<pre><code>DELIMITER //
-create procedure procedure_name(IN id INT)
-begin
--- start transaction
-
--- 执行的 SQL
-
--- commit;
--- rollback
-
-end //
-DELIMITER ; -- 这里有空格
-</code></pre>
-<p>首先改变默认的分隔符为 // 来作为存储过程结束的标识，随后再恢复默认值。</p>
-<h4 id="参数限制">参数限制</h4>
-<p>in: 给参数传入值，定义的参数就得到了值<br>
-out: 模式定义的参数只能在过程体内部赋值，表示该参数可以将某个值传递回调用他的过程（在存储过程内部，该参数初始值为 null，无论调用者是否给存储过程参数设置值）<br>
-inout: 调用者还可以通过 inout 参数传递值给存储过程，也可以从存储过程内部传值给调用者</p>
-<h4 id="参数类型">参数类型</h4>
-<p>MySQL 所有数据类型<br>
-int<br>
-tinyint<br>
-float<br>
-decimal<br>
-varchar<br>
-...</p>
-<p>FIND_IN_SET(str,strlist) 如果字符串str是在的strlist组成的N子串的字符串列表，返回值的范围为1到N SELECT FIND_IN_SET('1','1,2,3,4,5');</p>
-
-            </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://lonquan.github.io/post/qunliao-1/">
-                  <h3 class="post-title">
-                    群聊记事(Json 验证/命名方式/closure $this/多维数组去重/清除数据)
-                  </h3>
+          <h2 class="current-tag">标签: Laravel</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://lonquan.github.io/post/laravel-so-cool/">
+                  <h2 class="post-title">那些 Laravel 中的黑魔法</h2>
                 </a>
+                <div class="post-date">
+                  2019-10-24
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
               </div>
-            
-
-            
               
-                <div id="gitalk-container" data-aos="fade-in"></div>
-              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://lonquan.github.io/post/laravel-sub-domain-locale/">
+                  <h2 class="post-title">Laravel 实现子域名或参数多语言</h2>
+                </a>
+                <div class="post-date">
+                  2016-05-18
+                </div>
+                <div class="post-abstract">
+                  <pre><code class="language-php">//routes.php
+$route-&gt;group(['domain' =&gt; '{lang}.do.com'], function(){});
 
-              
-            
+// middleware
+\Route::current()-&gt;getParameter('lang');
+</code></pre>
 
-          </div>
+                </div>
+              </div>
+              
+            </article>
+          
+
+          <div class="pagination-container">
+  
+  
+</div>
 
         </div>
       </div>
@@ -206,30 +175,6 @@ var app = new Vue({
     hljs.initHighlightingOnLoad()
   </script>
 
-
-
-
-  
-    <!-- <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> -->
-    <script src="https://cdn.bootcss.com/gitalk/1.6.2/gitalk.min.js"></script>
-    <script>
-
-      var gitalk = new Gitalk({
-        clientID: '7e83f01bab75575755bb',
-        clientSecret: 'e39dfb6cfb4f8a31e873aa57c1cf9b76b9cf515d',
-        repo: 'lonquan.github.io',
-        owner: 'lonquan',
-        admin: ['lonquan'],
-        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-        distractionFreeMode: false  // Facebook-like distraction free mode
-      })
-
-      gitalk.render('gitalk-container')
-
-    </script>
-  
-
-  
 
 
 
