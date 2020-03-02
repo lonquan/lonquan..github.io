@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Linux 常用备忘 | 半壁峰林-龙权的自留地</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link href="https://cdn.bootcss.com/font-awesome/5.12.1/css/all.css" rel="stylesheet">
+<!-- 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+-->
+
+<link rel="shortcut icon" href="https://lonquan.github.io/favicon.ico?v=1583181608759">
+<link rel="stylesheet" href="https://lonquan.github.io/styles/main.css">
+
+
+  
+    <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" /> -->
+    <link href="https://cdn.bootcss.com/gitalk/1.6.2/gitalk.min.css" rel="stylesheet">
+  
+
+  
+
+
+<link href="https://cdn.bootcss.com/aos/3.0.0-beta.6/aos.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
+<script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+
+
+
+    <meta name="description" content="CentOS 常用命令😇😇
+# 查看磁盘空间
+df -h
+
+# 查看目录占用空间大小
+du -sh
+
+# 进程总数
+ps aux | wc -l
+
+#终止进程
+kill -9 `ps -ef | grep 'supervisor' | ..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://lonquan.github.io">
+        <img src="https://lonquan.github.io/images/avatar.png?v=1583181608759" class="site-logo">
+        <h1 class="site-title">半壁峰林-龙权的自留地</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+        
+          <a href="http://www.antcool.com" class="site-nav" target="_blank">
+            外包
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/lonquan" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      半壁峰林-龙权的自留地
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Lonquan.me</a> | <a class="rss" href="https://lonquan.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Linux 常用备忘</h2>
+            <div class="post-date">2019-03-03</div>
+            
+            <div class="post-content" v-pre>
+              <h4 id="centos-常用命令">CentOS 常用命令😇😇</h4>
+<pre><code class="language-bash"># 查看磁盘空间
+df -h
+
+# 查看目录占用空间大小
+du -sh
+
+# 进程总数
+ps aux | wc -l
+
+#终止进程
+kill -9 `ps -ef | grep 'supervisor' | awk '{print $2}'`
+kill -9 `lsof -i:9200 | awk '{print $2}'`
+
+# 查看端口占用
+lsof -i:6379
+netstat -anp tcp | grep 5601   
+
+# 删除文件
+find / -mtime +30 -name &quot;*.log&quot; -exec rm -rf {} \
+find ./ -mtime +30 -type f | xargs rm -rf
+
+# 查看端口占用
+netstat -nlp |grep 9200 
+
+# 查看DNS解析
+nslookup domain.com
+dig domain.com A/CNAME
+whois domain 
+
+# 添加用户到组
+usermod -a -G groupname username 
+
+# 修改 ssh 超时时间
+vim /etc/ssh/sshd_config
+#ClientAliveInterval 60
+#ClientAliveCountMax 3
+#systemctl restart sshd
+
+# 系统运行时间
+uptime
+
+# 查看内存
+free -h
+
+# 查看主机名称
+hostname or hostnamectl 
+
+# 修改主机名称
+sudo hostnamectl set-hostname name
+
+# 禁止 ping
+vim /etc/sysctl.conf
+net.ipv4.icmp_echo_ignore_all = 0
+sysctl -p
+
+# 以某个用户执行命令
+sudo -Hu www /usr/local/php/bin/php artisan config:cache
+
+# 生成 ssh 公钥
+ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
+
+# 同步 ssh 免密登录
+ssh-copy-id root@ip
+
+# ssh 不同 publickey (~/.ssh/config 文件)
+Host events_api_deploy
+    HostName git.coding.net
+    User git
+    IdentitiesOnly yes
+    IdentityFile /root/.ssh/events_api_deploy
+# 连接的时候
+git clone -b master  --recursive -q events_api_deploy:soda/qc_events.git
+
+# scp 复制文件指定公钥
+scp -P 8222 -i qcloud_event_id_rsa -r root@host:/data/path/ /data/path
+
+# MySQL 创建数据库指定字符集
+create database jjd_tcc default character set = 'utf8mb4';
+</code></pre>
+<h4 id="安装-lnmp">安装 lnmp</h4>
+<pre><code class="language-bash"># 格式硬盘
+wget http://mirrors.linuxeye.com/scripts/auto_fdisk.sh
+chmod +x ./auto_fdisk.sh
+./auto_fdisk.sh
+
+# 安装依赖
+yum -y install wget screen curl python
+
+# 下载源码
+wget http://mirrors.linuxeye.com/lnmp-full.tar.gz
+tar xzf lnmp-full.tar.gz
+cd lnmp
+screen -S lnmp
+./install.sh
+ssh port 8032
+
+# 保持 ssh 连接
+
+#deployer php 错误
+ln -s /usr/local/php/bin/php /usr/local/bin/php
+
+# 修改 Nginx config fastcgi 路径错误
+/usr/local/nginx/conf/fastcgi.conf
+fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+
+#修改 php 设置 关闭 opcache 时间戳验证
+/usr/local/php/etc/php.d/
+opcache.validate_timestamps=1 =&gt; 0
+
+# 修改 php 设置 设置函数限制
+/usr/local/php/etc/php.ini
+disable_functions = passthru,system,chroot,chgrp,chown,shell_exec,ini_alter,ini_restore,dl,openlog,syslog,readlink,popepassthru,stream_socket_server,fsocket,popen
+
+# redis 扩展
+/usr/local/php/etc/php.d/redis.conf
+# 设置 redis 密码
+/usr/local/redis/etc/redis.conf
+requirepass nodejs_org_4ok123
+service redis-server restart
+
+# 安装 supervisor
+yum -y install python-setuptools
+easy_install supervisor
+echo_supervisord_conf &gt; /data/supervisor/supervisord.conf
+# 开机脚本
+https://raw.githubusercontent.com/Supervisor/initscripts/master/centos-systemd-etcs
+
+# 安装 composer 
+https://getcomposer.org/download/
+#设置中国镜像
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+
+# 安装 node
+wget https://nodejs.org/dist/v12.11.1/node-v12.11.1-linux-x64.tar.xz 
+tar -xvJf node-v8.11.1-linux-x64.tar.xz
+ln -s /root/node-v12.11.1-linux-x64/bin/node /usr/bin/node
+ln -s /root/node-v12.11.1-linux-x64/bin/npm /usr/bin/npm
+ln -s /root/node-v12.11.1-linux-x64/bin/npx /usr/bin/npx
+node -v &amp; npm -v
+npm i -g yrm
+yrm use taobao
+
+# 安装 Git
+1. sudo yum groupinstall &quot;Development Tools&quot;
+2. sudo yum install zlib-devel perl-ExtUtils-MakeMaker asciidoc xmlto openssl-devel
+3. wget -O git.zip https://github.com/git/git/archive/master.zip
+4. unzip git.zip
+5. cd git-master
+6. autoconf
+7. ./configure
+8. make &amp;&amp; make install
+9. yum remove git
+10. whereis git 删除掉上面的文件 
+11. ln -s /path/git-master/git /usr/bin/git
+12. git --version // git version 2.7.0
+
+# composer install 参数
+composer install --no-progress --no-suggest --ansi --no-interaction
+* --no-progress: 移除进度信息，这可以避免一些不处理换行的终端或脚本出现混乱的显示。
+* --no-suggest： 不要显示建议
+* --ansi 强制 ANSI输出
+* --no-interaction 不询问交互
+
+# horizon:purge 应作为部署的一部分
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://lonquan.github.io/post/doc-zh-cn/">
+                  <h3 class="post-title">
+                    中文文案排版指北（简体中文版）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="https://unpkg.com/aos@next/dist/aos.js"></script> -->
+<script src="https://cdn.bootcss.com/aos/3.0.0-beta.6/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <!-- <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script> -->
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <!-- <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> -->
+    <script src="https://cdn.bootcss.com/gitalk/1.6.2/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '7e83f01bab75575755bb',
+        clientSecret: 'e39dfb6cfb4f8a31e873aa57c1cf9b76b9cf515d',
+        repo: 'lonquan.github.io',
+        owner: 'lonquan',
+        admin: ['lonquan'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

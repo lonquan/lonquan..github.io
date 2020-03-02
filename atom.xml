@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lonquan.github.io</id>
     <title>半壁峰林-龙权的自留地</title>
-    <updated>2020-03-02T10:50:00.832Z</updated>
+    <updated>2020-03-02T20:40:11.390Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lonquan.github.io"/>
     <link rel="self" href="https://lonquan.github.io/atom.xml"/>
@@ -10,6 +10,180 @@
     <logo>https://lonquan.github.io/images/avatar.png</logo>
     <icon>https://lonquan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 半壁峰林-龙权的自留地</rights>
+    <entry>
+        <title type="html"><![CDATA[Linux 常用备忘]]></title>
+        <id>https://lonquan.github.io/post/linux-chang-yong-bei-wang/</id>
+        <link href="https://lonquan.github.io/post/linux-chang-yong-bei-wang/">
+        </link>
+        <updated>2019-03-02T20:36:28.000Z</updated>
+        <content type="html"><![CDATA[<h4 id="centos-常用命令">CentOS 常用命令😇😇</h4>
+<pre><code class="language-bash"># 查看磁盘空间
+df -h
+
+# 查看目录占用空间大小
+du -sh
+
+# 进程总数
+ps aux | wc -l
+
+#终止进程
+kill -9 `ps -ef | grep 'supervisor' | awk '{print $2}'`
+kill -9 `lsof -i:9200 | awk '{print $2}'`
+
+# 查看端口占用
+lsof -i:6379
+netstat -anp tcp | grep 5601   
+
+# 删除文件
+find / -mtime +30 -name &quot;*.log&quot; -exec rm -rf {} \
+find ./ -mtime +30 -type f | xargs rm -rf
+
+# 查看端口占用
+netstat -nlp |grep 9200 
+
+# 查看DNS解析
+nslookup domain.com
+dig domain.com A/CNAME
+whois domain 
+
+# 添加用户到组
+usermod -a -G groupname username 
+
+# 修改 ssh 超时时间
+vim /etc/ssh/sshd_config
+#ClientAliveInterval 60
+#ClientAliveCountMax 3
+#systemctl restart sshd
+
+# 系统运行时间
+uptime
+
+# 查看内存
+free -h
+
+# 查看主机名称
+hostname or hostnamectl 
+
+# 修改主机名称
+sudo hostnamectl set-hostname name
+
+# 禁止 ping
+vim /etc/sysctl.conf
+net.ipv4.icmp_echo_ignore_all = 0
+sysctl -p
+
+# 以某个用户执行命令
+sudo -Hu www /usr/local/php/bin/php artisan config:cache
+
+# 生成 ssh 公钥
+ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
+
+# 同步 ssh 免密登录
+ssh-copy-id root@ip
+
+# ssh 不同 publickey (~/.ssh/config 文件)
+Host events_api_deploy
+    HostName git.coding.net
+    User git
+    IdentitiesOnly yes
+    IdentityFile /root/.ssh/events_api_deploy
+# 连接的时候
+git clone -b master  --recursive -q events_api_deploy:soda/qc_events.git
+
+# scp 复制文件指定公钥
+scp -P 8222 -i qcloud_event_id_rsa -r root@host:/data/path/ /data/path
+
+# MySQL 创建数据库指定字符集
+create database jjd_tcc default character set = 'utf8mb4';
+</code></pre>
+<h4 id="安装-lnmp">安装 lnmp</h4>
+<pre><code class="language-bash"># 格式硬盘
+wget http://mirrors.linuxeye.com/scripts/auto_fdisk.sh
+chmod +x ./auto_fdisk.sh
+./auto_fdisk.sh
+
+# 安装依赖
+yum -y install wget screen curl python
+
+# 下载源码
+wget http://mirrors.linuxeye.com/lnmp-full.tar.gz
+tar xzf lnmp-full.tar.gz
+cd lnmp
+screen -S lnmp
+./install.sh
+ssh port 8032
+
+# 保持 ssh 连接
+
+#deployer php 错误
+ln -s /usr/local/php/bin/php /usr/local/bin/php
+
+# 修改 Nginx config fastcgi 路径错误
+/usr/local/nginx/conf/fastcgi.conf
+fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+
+#修改 php 设置 关闭 opcache 时间戳验证
+/usr/local/php/etc/php.d/
+opcache.validate_timestamps=1 =&gt; 0
+
+# 修改 php 设置 设置函数限制
+/usr/local/php/etc/php.ini
+disable_functions = passthru,system,chroot,chgrp,chown,shell_exec,ini_alter,ini_restore,dl,openlog,syslog,readlink,popepassthru,stream_socket_server,fsocket,popen
+
+# redis 扩展
+/usr/local/php/etc/php.d/redis.conf
+# 设置 redis 密码
+/usr/local/redis/etc/redis.conf
+requirepass nodejs_org_4ok123
+service redis-server restart
+
+# 安装 supervisor
+yum -y install python-setuptools
+easy_install supervisor
+echo_supervisord_conf &gt; /data/supervisor/supervisord.conf
+# 开机脚本
+https://raw.githubusercontent.com/Supervisor/initscripts/master/centos-systemd-etcs
+
+# 安装 composer 
+https://getcomposer.org/download/
+#设置中国镜像
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+
+# 安装 node
+wget https://nodejs.org/dist/v12.11.1/node-v12.11.1-linux-x64.tar.xz 
+tar -xvJf node-v8.11.1-linux-x64.tar.xz
+ln -s /root/node-v12.11.1-linux-x64/bin/node /usr/bin/node
+ln -s /root/node-v12.11.1-linux-x64/bin/npm /usr/bin/npm
+ln -s /root/node-v12.11.1-linux-x64/bin/npx /usr/bin/npx
+node -v &amp; npm -v
+npm i -g yrm
+yrm use taobao
+
+# 安装 Git
+1. sudo yum groupinstall &quot;Development Tools&quot;
+2. sudo yum install zlib-devel perl-ExtUtils-MakeMaker asciidoc xmlto openssl-devel
+3. wget -O git.zip https://github.com/git/git/archive/master.zip
+4. unzip git.zip
+5. cd git-master
+6. autoconf
+7. ./configure
+8. make &amp;&amp; make install
+9. yum remove git
+10. whereis git 删除掉上面的文件 
+11. ln -s /path/git-master/git /usr/bin/git
+12. git --version // git version 2.7.0
+
+# composer install 参数
+composer install --no-progress --no-suggest --ansi --no-interaction
+* --no-progress: 移除进度信息，这可以避免一些不处理换行的终端或脚本出现混乱的显示。
+* --no-suggest： 不要显示建议
+* --ansi 强制 ANSI输出
+* --no-interaction 不询问交互
+
+# horizon:purge 应作为部署的一部分
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[中文文案排版指北（简体中文版）]]></title>
         <id>https://lonquan.github.io/post/doc-zh-cn/</id>
@@ -643,26 +817,6 @@ SELECT LAST_INSERT_ID();
 二是带有表达式：如上面介绍的LAST_INSERT_ID(value+1)，它返回的是表达式的值，即‘value+1'；</li>
 </ol>
 <p>5.** 唯一性测试**</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[PHP 各扩展安装]]></title>
-        <id>https://lonquan.github.io/post/php-install-extensions/</id>
-        <link href="https://lonquan.github.io/post/php-install-extensions/">
-        </link>
-        <updated>2015-03-02T10:28:28.000Z</updated>
-        <content type="html"><![CDATA[<p>http://www.php.net/distributions/php-$version.tar.gz</p>
-<h3 id="bcmath">bcmath</h3>
-<pre><code>/ext/bcmath
-phpize
-which php-config
-./configure --with-php-config=/usr/local/php/bin/php-config
-make
-make test
-make install
-
-echo &quot;extension=bcmath.so&quot; &gt;&gt; /etc/php.ini
-</code></pre>
 ]]></content>
     </entry>
 </feed>
