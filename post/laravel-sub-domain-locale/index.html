@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 | 半壁峰林-龙权的自留地</title>
+<title>Laravel 实现子域名或参数多语言 | 半壁峰林-龙权的自留地</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -32,14 +32,11 @@
 
 
 
-    <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
+    <meta name="description" content="//routes.php
+$route-&gt;group(['domain' =&gt; '{lang}.do.com'], function(){});
 
-🏠 关于本站
-👨‍💻 博主是谁
-⛹ 兴趣爱好
-📬 联系我呀
-..." />
+// middleware
+\Route::current()-&gt;getP..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -121,20 +118,50 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于</h2>
-            <div class="post-date">2019-01-25</div>
+            <h2 class="post-title">Laravel 实现子域名或参数多语言</h2>
+            <div class="post-date">2016-05-18</div>
             
             <div class="post-content" v-pre>
-              <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+              <pre><code class="language-php">//routes.php
+$route-&gt;group(['domain' =&gt; '{lang}.do.com'], function(){});
+
+// middleware
+\Route::current()-&gt;getParameter('lang');
+</code></pre>
+<pre><code class="language-php">&lt;?php
+namespace AppHttpMiddleware;
+
+use Closure;
+use IlluminateSupportFacadesApp;
+
+class LangMiddleware{ 
+    public function handle($request, Closure $next) {
+        $url_array = explode('.', parse_url($request-&gt;url(), PHP_URL_HOST)); 
+        $subdomain = $url_array[0]; 
+        $languages = ['en', 'de']; 
+        
+        if (in_array($subdomain, $languages)) { 
+                App::setLocale($subdomain); 
+        }
+
+        return $next($request); 
+  
+&lt;!-- more --&gt;
+}
+}
+</code></pre>
 
             </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://lonquan.github.io/post/redis-vs-kvdb/">
+                  <h3 class="post-title">
+                    Redis VS KVDB 没有最优的，只有最适合的
+                  </h3>
+                </a>
+              </div>
             
 
             

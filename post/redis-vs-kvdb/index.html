@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 | 半壁峰林-龙权的自留地</title>
+<title>Redis VS KVDB 没有最优的，只有最适合的 | 半壁峰林-龙权的自留地</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -32,14 +32,16 @@
 
 
 
-    <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
+    <meta name="description" content="数据类型
+Redis
+字符串、链表、集合、有序集合、哈希表等多种数据类型、事物、消息订阅与发布等高级功能。支持丰富的数据类型，使用起来更加自由灵活~
+KVDB
+字符串、图片，存放类型简单的数据，如好友关系等。
 
-🏠 关于本站
-👨‍💻 博主是谁
-⛹ 兴趣爱好
-📬 联系我呀
-..." />
+
+读写方式
+Redis
+数据..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -121,20 +123,62 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于</h2>
-            <div class="post-date">2019-01-25</div>
+            <h2 class="post-title">Redis VS KVDB 没有最优的，只有最适合的</h2>
+            <div class="post-date">2016-05-02</div>
             
             <div class="post-content" v-pre>
-              <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+              <p><strong>数据类型</strong></p>
+<p>Redis<br>
+字符串、链表、集合、有序集合、哈希表等多种数据类型、事物、消息订阅与发布等高级功能。支持丰富的数据类型，使用起来更加自由灵活~</p>
+<p>KVDB<br>
+字符串、图片，存放类型简单的数据，如好友关系等。</p>
+<!-- more -->
+<hr>
+<p><strong>读写方式</strong></p>
+<p>Redis<br>
+数据全部保存在内存中，周期性写入磁盘。异步读写，速度超级快，至少是KVDB的20倍。使用之后瞬间提速，对速度与性能要求极高的应用可以考虑使用。</p>
+<p>KVDB<br>
+完备的刷写机制，保证数据存储，更加稳定。</p>
+<hr>
+<p><strong>存储容量</strong></p>
+<p>Redis<br>
+存储容量是固定的256M、512M、1G，容量大小固定，可以自己选择超过容量后的删除策略。</p>
+<p>KVDB<br>
+巨大存储容量，支持100G的存储空间，可支持1,000,000,000条记录，几乎随心所欲的大容量~</p>
+<hr>
+<p><strong>使用场景</strong></p>
+<p>Redis<br>
+Redis的角色更像是一个缓冲，在系统出现瓶颈的时候，依托高性能解决瓶颈。可以做数据库、缓存和消息中间件</p>
+<ul>
+<li>排行榜应用</li>
+<li>计数器应用</li>
+<li>数据去重应用</li>
+<li>消息发布、订阅系统</li>
+<li>需要频繁读写的数据</li>
+<li>作为数据持久化的缓冲，解决数据库的写入瓶颈</li>
+<li>依托于Redis的超高性能，让系统的性能瓶颈问题迎刃而解</li>
+</ul>
+<p>KVDB<br>
+KVDB在整个系统中的角色偏向于和MySQL一样，属于数据永久数据库存储</p>
+<ul>
+<li>全表扫描</li>
+<li>范围查找</li>
+<li>Key-Valve数据库</li>
+<li>社交应用</li>
+<li>地图应用</li>
+</ul>
 
             </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://lonquan.github.io/post/redis-de-shu-ju-dao-ru-dao-chu/">
+                  <h3 class="post-title">
+                    Redis 的数据导入导出
+                  </h3>
+                </a>
+              </div>
             
 
             

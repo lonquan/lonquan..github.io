@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lonquan.github.io</id>
     <title>半壁峰林-龙权的自留地</title>
-    <updated>2020-03-02T10:15:19.692Z</updated>
+    <updated>2020-03-02T10:30:02.830Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lonquan.github.io"/>
     <link rel="self" href="https://lonquan.github.io/atom.xml"/>
@@ -10,6 +10,510 @@
     <logo>https://lonquan.github.io/images/avatar.png</logo>
     <icon>https://lonquan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 半壁峰林-龙权的自留地</rights>
+    <entry>
+        <title type="html"><![CDATA[Ubuntu 查看版本]]></title>
+        <id>https://lonquan.github.io/post/ubuntu-cha-kan-ban-ben/</id>
+        <link href="https://lonquan.github.io/post/ubuntu-cha-kan-ban-ben/">
+        </link>
+        <updated>2020-03-02T10:23:30.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>vagrant@homestead:~$ cat /proc/version</p>
+</blockquote>
+<pre><code>Linux version 3.19.0-25-generic (buildd@lgw01-20) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #26~14.04.1-Ubuntu SMP Fri Jul 24 21:16:20 UTC 2015
+</code></pre>
+<blockquote>
+<p>vagrant@homestead:~$ uname -a</p>
+</blockquote>
+<pre><code>Linux homestead 3.19.0-25-generic #26~14.04.1-Ubuntu SMP Fri Jul 24 21:16:20 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre>
+<blockquote>
+<p>vagrant@homestead:~$ lsb_release -a</p>
+</blockquote>
+<pre><code>No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 14.04.3 LTS
+Release:	14.04
+Codename:	trusty
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[中文文案排版指北（简体中文版）]]></title>
+        <id>https://lonquan.github.io/post/doc-zh-cn/</id>
+        <link href="https://lonquan.github.io/post/doc-zh-cn/">
+        </link>
+        <updated>2017-03-02T10:29:23.000Z</updated>
+        <summary type="html"><![CDATA[<p>###空格<br>
+「有研究显示，打字的时候不喜欢在中文和英文之间加空格的人，感情路都走得很辛苦，有七成的比例会在 34 岁的时候跟自己不爱的人结婚，而其余三成的人最后只能把遗产留给自己的猫。毕竟爱情跟书写都需要适时地留白。<br>
+与大家共勉之。」</p>
+<p>####中英文之间需要增加空格<br>
+正确：</p>
+<blockquote>
+<p>在 LeanCloud 上，数据存储是围绕 AVObject 进行的。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>在LeanCloud上，数据存储是围绕 AVObject进行的。</p>
+</blockquote>
+<blockquote>
+<p>在 LeanCloud上，数据存储是围绕AVObject 进行的。</p>
+</blockquote>
+<p>完整的正确用法：</p>
+<blockquote>
+<p>在 LeanCloud 上，数据存储是围绕 AVObject 进行的。每个 AVObject 都包含了与 JSON 兼容的 key-value 对应的数据。数据是 schema-free 的，你不需要在每个 AVObject 上提前指定存在哪些键，只要直接设定对应的 key-value 即可。</p>
+</blockquote>
+<p>例外：「豆瓣FM」等产品名词，按照官方所定义的格式书写。</p>
+<p>####中文与数字之间需要增加空格<br>
+正确：</p>
+<blockquote>
+<p>今天出去买菜花了 5000 元。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>今天出去买菜花了 5000元。</p>
+</blockquote>
+<blockquote>
+<p>今天出去买菜花了5000元。</p>
+</blockquote>
+<p>####数字与单位之间需要增加空格<br>
+正确：</p>
+<blockquote>
+<p>我家的光纤入户宽带有 10 Gbps，SSD 一共有 20 TB。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>我家的光纤入户宽带有 10Gbps，SSD 一共有 10TB。</p>
+</blockquote>
+<p>例外：度／百分比与数字之间不需要增加空格：<br>
+正确：</p>
+<blockquote>
+<p>今天是 233° 的高温。</p>
+</blockquote>
+<blockquote>
+<p>新 MacBook Pro 有 15% 的 CPU 性能提升。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>今天是 233 ° 的高温。</p>
+</blockquote>
+<blockquote>
+<p>新 MacBook Pro 有 15 % 的 CPU 性能提升。</p>
+</blockquote>
+<p>####全角标点与其他字符之间不加空格<br>
+正确：</p>
+<blockquote>
+<p>刚刚买了一部 iPhone，好开心！</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>刚刚买了一部 iPhone ，好开心！</p>
+</blockquote>
+<p>###标点符号<br>
+<strong>不重复使用标点符号</strong><br>
+正确：</p>
+<blockquote>
+<p>德国队竟然战胜了巴西队！</p>
+</blockquote>
+<blockquote>
+<p>她竟然对你说「喵」？！</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>德国队竟然战胜了巴西队！！</p>
+</blockquote>
+<blockquote>
+<p>德国队竟然战胜了巴西队！！！！！！！！</p>
+</blockquote>
+<blockquote>
+<p>她竟然对你说「喵」？？！！</p>
+</blockquote>
+<blockquote>
+<p>她竟然对你说「喵」？！？！？？！！</p>
+</blockquote>
+<p>####全角和半角<br>
+<strong>不明白什么是全角（全形）与半角（半形）符号？请查看维基百科词条『[全角和半角]</strong>(http://zh.wikipedia.org/wiki/%E5%85%A8%E5%BD%A2%E5%92%8C%E5%8D%8A%E5%BD%A2)』。<br>
+####使用全角中文标点<br>
+正确：</p>
+<blockquote>
+<p>嗨！你知道嘛？今天前台的小妹跟我说「喵」了哎！</p>
+</blockquote>
+<blockquote>
+<p>核磁共振成像（NMRI）是什么原理都不知道？JFGI！</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>嗨! 你知道嘛? 今天前台的小妹跟我说 “喵” 了哎!</p>
+</blockquote>
+<blockquote>
+<p>嗨!你知道嘛?今天前台的小妹跟我说”喵”了哎!</p>
+</blockquote>
+<blockquote>
+<p>核磁共振成像 (NMRI) 是什么原理都不知道? JFGI!</p>
+</blockquote>
+<blockquote>
+<p>核磁共振成像(NMRI)是什么原理都不知道?JFGI!</p>
+</blockquote>
+<p>####数字使用半角字符<br>
+正确：</p>
+<blockquote>
+<p>这件蛋糕只卖 1000 元。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>这件蛋糕只卖 １０００ 元。</p>
+</blockquote>
+<p>例外：在设计稿、宣传海报中如出现极少量数字的情形时，为方便文字对齐，是可以使用全角数字的。</p>
+<p>####遇到完整的英文整句、特殊名词，其內容使用半角标点<br>
+正确：</p>
+<blockquote>
+<p>乔布斯那句话是怎么说的？「Stay hungry, stay foolish.」</p>
+</blockquote>
+<blockquote>
+<p>推荐你阅读《Hackers &amp; Painters: Big Ideas from the Computer Age》，非常的有趣。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>乔布斯那句话是怎么说的？「Stay hungry，stay foolish。」</p>
+</blockquote>
+<blockquote>
+<p>推荐你阅读《Hackers＆Painters：Big Ideas from the Computer Age》，非常的有趣。</p>
+</blockquote>
+<p>####名词<br>
+<strong>专有名词使用正确的大小写</strong><br>
+大小写相关用法原属于英文书写范畴，不属于本 wiki 讨论內容，在这里只对部分易错用法进行简述。<br>
+正确：</p>
+<blockquote>
+<p>使用 GitHub 登录</p>
+</blockquote>
+<blockquote>
+<p>我们的客户有 GitHub、Foursquare、Microsoft Corporation、Google、Facebook, Inc.。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>使用 github 登录</p>
+</blockquote>
+<blockquote>
+<p>使用 GITHUB 登录</p>
+</blockquote>
+<blockquote>
+<p>使用 Github 登录</p>
+</blockquote>
+<blockquote>
+<p>使用 gitHub 登录</p>
+</blockquote>
+<blockquote>
+<p>使用 gｲんĤЦ8 登录</p>
+</blockquote>
+<blockquote>
+<p>我们的客户有 github、foursquare、microsoft corporation、google、facebook, inc.。</p>
+</blockquote>
+<blockquote>
+<p>我们的客户有 GITHUB、FOURSQUARE、MICROSOFT CORPORATION、GOOGLE、FACEBOOK, INC.。</p>
+</blockquote>
+<blockquote>
+<p>我们的客户有 Github、FourSquare、MicroSoft Corporation、Google、FaceBook, Inc.。</p>
+</blockquote>
+<blockquote>
+<p>我们的客户有 gitHub、fourSquare、microSoft Corporation、google、faceBook, Inc.。</p>
+</blockquote>
+<blockquote>
+<p>我们的客户有 gｲんĤЦ8、ｷouЯƧquﾑгє、๓เςг๏ร๏Ŧt ς๏гק๏гคtเ๏ภn、900913、ƒ4ᄃëв๏๏к, IПᄃ.。</p>
+</blockquote>
+<p>注意：当网页中需要配合整体视觉风格而出现全部大写／小写的情形，HTML 中请使用标准的大小写规范进行书写；并通过 text-transform: uppercase;<br>
+／text-transform: lowercase; 对表现形式进行定义。</p>
+<p>####不要使用不地道的缩写<br>
+正确：</p>
+<blockquote>
+<p>我们需要一位熟悉 JavaScript、HTML5，至少理解一种框架（如 Backbone.js、AngularJS、React 等）的前端开发者。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>我们需要一位熟悉 Js、h5，至少理解一种框架（如 backbone、angular、RJS 等）的 FED。</p>
+</blockquote>
+<p>###争议<br>
+<strong>以下用法略带有个人色彩，既：无论是否遵循下述规则，从语法的角度来讲都是</strong>正确**的。</p>
+<p>####链接之间增加空格<br>
+用法：</p>
+<blockquote>
+<p>请 <a href="http://mazhuang.org/wiki/chinese-copywriting-guidelines/#">提交一个 issue</a> 并分配给相关同事。</p>
+</blockquote>
+<blockquote>
+<p>访问我们网站的最新动态，请 <a href="http://mazhuang.org/wiki/chinese-copywriting-guidelines/#">点击这里</a> 进行订阅！</p>
+</blockquote>
+<p>对比用法：</p>
+<blockquote>
+<p>请<a href="http://mazhuang.org/wiki/chinese-copywriting-guidelines/#">提交一个 issue</a> 并分配给相关同事。</p>
+</blockquote>
+<blockquote>
+<p>访问我们网站的最新动态，请<a href="http://mazhuang.org/wiki/chinese-copywriting-guidelines/#">点击这里</a>进行订阅！</p>
+</blockquote>
+<p>####简体中文使用直角引号<br>
+用法：</p>
+<blockquote>
+<p>「老师，『有条不紊』的『紊』是什么意思？」</p>
+</blockquote>
+<p>对比用法：</p>
+<blockquote>
+<p>“老师，‘有条不紊’的‘紊’是什么意思？”</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<p>###空格<br>
+「有研究显示，打字的时候不喜欢在中文和英文之间加空格的人，感情路都走得很辛苦，有七成的比例会在 34 岁的时候跟自己不爱的人结婚，而其余三成的人最后只能把遗产留给自己的猫。毕竟爱情跟书写都需要适时地留白。<br>
+与大家共勉之。」</p>
+<p>####中英文之间需要增加空格<br>
+正确：</p>
+<blockquote>
+<p>在 LeanCloud 上，数据存储是围绕 AVObject 进行的。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>在LeanCloud上，数据存储是围绕 AVObject进行的。</p>
+</blockquote>
+<blockquote>
+<p>在 LeanCloud上，数据存储是围绕AVObject 进行的。</p>
+</blockquote>
+<p>完整的正确用法：</p>
+<blockquote>
+<p>在 LeanCloud 上，数据存储是围绕 AVObject 进行的。每个 AVObject 都包含了与 JSON 兼容的 key-value 对应的数据。数据是 schema-free 的，你不需要在每个 AVObject 上提前指定存在哪些键，只要直接设定对应的 key-value 即可。</p>
+</blockquote>
+<p>例外：「豆瓣FM」等产品名词，按照官方所定义的格式书写。</p>
+<p>####中文与数字之间需要增加空格<br>
+正确：</p>
+<blockquote>
+<p>今天出去买菜花了 5000 元。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>今天出去买菜花了 5000元。</p>
+</blockquote>
+<blockquote>
+<p>今天出去买菜花了5000元。</p>
+</blockquote>
+<p>####数字与单位之间需要增加空格<br>
+正确：</p>
+<blockquote>
+<p>我家的光纤入户宽带有 10 Gbps，SSD 一共有 20 TB。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>我家的光纤入户宽带有 10Gbps，SSD 一共有 10TB。</p>
+</blockquote>
+<p>例外：度／百分比与数字之间不需要增加空格：<br>
+正确：</p>
+<blockquote>
+<p>今天是 233° 的高温。</p>
+</blockquote>
+<blockquote>
+<p>新 MacBook Pro 有 15% 的 CPU 性能提升。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>今天是 233 ° 的高温。</p>
+</blockquote>
+<blockquote>
+<p>新 MacBook Pro 有 15 % 的 CPU 性能提升。</p>
+</blockquote>
+<p>####全角标点与其他字符之间不加空格<br>
+正确：</p>
+<blockquote>
+<p>刚刚买了一部 iPhone，好开心！</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>刚刚买了一部 iPhone ，好开心！</p>
+</blockquote>
+<p>###标点符号<br>
+<strong>不重复使用标点符号</strong><br>
+正确：</p>
+<blockquote>
+<p>德国队竟然战胜了巴西队！</p>
+</blockquote>
+<blockquote>
+<p>她竟然对你说「喵」？！</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>德国队竟然战胜了巴西队！！</p>
+</blockquote>
+<blockquote>
+<p>德国队竟然战胜了巴西队！！！！！！！！</p>
+</blockquote>
+<blockquote>
+<p>她竟然对你说「喵」？？！！</p>
+</blockquote>
+<blockquote>
+<p>她竟然对你说「喵」？！？！？？！！</p>
+</blockquote>
+<p>####全角和半角<br>
+<strong>不明白什么是全角（全形）与半角（半形）符号？请查看维基百科词条『[全角和半角]</strong>(http://zh.wikipedia.org/wiki/%E5%85%A8%E5%BD%A2%E5%92%8C%E5%8D%8A%E5%BD%A2)』。<br>
+####使用全角中文标点<br>
+正确：</p>
+<blockquote>
+<p>嗨！你知道嘛？今天前台的小妹跟我说「喵」了哎！</p>
+</blockquote>
+<blockquote>
+<p>核磁共振成像（NMRI）是什么原理都不知道？JFGI！</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>嗨! 你知道嘛? 今天前台的小妹跟我说 “喵” 了哎!</p>
+</blockquote>
+<blockquote>
+<p>嗨!你知道嘛?今天前台的小妹跟我说”喵”了哎!</p>
+</blockquote>
+<blockquote>
+<p>核磁共振成像 (NMRI) 是什么原理都不知道? JFGI!</p>
+</blockquote>
+<blockquote>
+<p>核磁共振成像(NMRI)是什么原理都不知道?JFGI!</p>
+</blockquote>
+<p>####数字使用半角字符<br>
+正确：</p>
+<blockquote>
+<p>这件蛋糕只卖 1000 元。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>这件蛋糕只卖 １０００ 元。</p>
+</blockquote>
+<p>例外：在设计稿、宣传海报中如出现极少量数字的情形时，为方便文字对齐，是可以使用全角数字的。</p>
+<p>####遇到完整的英文整句、特殊名词，其內容使用半角标点<br>
+正确：</p>
+<blockquote>
+<p>乔布斯那句话是怎么说的？「Stay hungry, stay foolish.」</p>
+</blockquote>
+<blockquote>
+<p>推荐你阅读《Hackers &amp; Painters: Big Ideas from the Computer Age》，非常的有趣。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>乔布斯那句话是怎么说的？「Stay hungry，stay foolish。」</p>
+</blockquote>
+<blockquote>
+<p>推荐你阅读《Hackers＆Painters：Big Ideas from the Computer Age》，非常的有趣。</p>
+</blockquote>
+<p>####名词<br>
+<strong>专有名词使用正确的大小写</strong><br>
+大小写相关用法原属于英文书写范畴，不属于本 wiki 讨论內容，在这里只对部分易错用法进行简述。<br>
+正确：</p>
+<blockquote>
+<p>使用 GitHub 登录</p>
+</blockquote>
+<blockquote>
+<p>我们的客户有 GitHub、Foursquare、Microsoft Corporation、Google、Facebook, Inc.。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>使用 github 登录</p>
+</blockquote>
+<blockquote>
+<p>使用 GITHUB 登录</p>
+</blockquote>
+<blockquote>
+<p>使用 Github 登录</p>
+</blockquote>
+<blockquote>
+<p>使用 gitHub 登录</p>
+</blockquote>
+<blockquote>
+<p>使用 gｲんĤЦ8 登录</p>
+</blockquote>
+<blockquote>
+<p>我们的客户有 github、foursquare、microsoft corporation、google、facebook, inc.。</p>
+</blockquote>
+<blockquote>
+<p>我们的客户有 GITHUB、FOURSQUARE、MICROSOFT CORPORATION、GOOGLE、FACEBOOK, INC.。</p>
+</blockquote>
+<blockquote>
+<p>我们的客户有 Github、FourSquare、MicroSoft Corporation、Google、FaceBook, Inc.。</p>
+</blockquote>
+<blockquote>
+<p>我们的客户有 gitHub、fourSquare、microSoft Corporation、google、faceBook, Inc.。</p>
+</blockquote>
+<blockquote>
+<p>我们的客户有 gｲんĤЦ8、ｷouЯƧquﾑгє、๓เςг๏ร๏Ŧt ς๏гק๏гคtเ๏ภn、900913、ƒ4ᄃëв๏๏к, IПᄃ.。</p>
+</blockquote>
+<p>注意：当网页中需要配合整体视觉风格而出现全部大写／小写的情形，HTML 中请使用标准的大小写规范进行书写；并通过 text-transform: uppercase;<br>
+／text-transform: lowercase; 对表现形式进行定义。</p>
+<p>####不要使用不地道的缩写<br>
+正确：</p>
+<blockquote>
+<p>我们需要一位熟悉 JavaScript、HTML5，至少理解一种框架（如 Backbone.js、AngularJS、React 等）的前端开发者。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>我们需要一位熟悉 Js、h5，至少理解一种框架（如 backbone、angular、RJS 等）的 FED。</p>
+</blockquote>
+<p>###争议<br>
+<strong>以下用法略带有个人色彩，既：无论是否遵循下述规则，从语法的角度来讲都是</strong>正确**的。</p>
+<p>####链接之间增加空格<br>
+用法：</p>
+<blockquote>
+<p>请 <a href="http://mazhuang.org/wiki/chinese-copywriting-guidelines/#">提交一个 issue</a> 并分配给相关同事。</p>
+</blockquote>
+<blockquote>
+<p>访问我们网站的最新动态，请 <a href="http://mazhuang.org/wiki/chinese-copywriting-guidelines/#">点击这里</a> 进行订阅！</p>
+</blockquote>
+<p>对比用法：</p>
+<blockquote>
+<p>请<a href="http://mazhuang.org/wiki/chinese-copywriting-guidelines/#">提交一个 issue</a> 并分配给相关同事。</p>
+</blockquote>
+<blockquote>
+<p>访问我们网站的最新动态，请<a href="http://mazhuang.org/wiki/chinese-copywriting-guidelines/#">点击这里</a>进行订阅！</p>
+</blockquote>
+<p>####简体中文使用直角引号<br>
+用法：</p>
+<blockquote>
+<p>「老师，『有条不紊』的『紊』是什么意思？」</p>
+</blockquote>
+<p>对比用法：</p>
+<blockquote>
+<p>“老师，‘有条不紊’的‘紊’是什么意思？”</p>
+</blockquote>
+<!-- more -->
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[MySQL 存储过程]]></title>
+        <id>https://lonquan.github.io/post/mysql-cun-chu-guo-cheng/</id>
+        <link href="https://lonquan.github.io/post/mysql-cun-chu-guo-cheng/">
+        </link>
+        <updated>2016-07-02T10:27:10.000Z</updated>
+        <content type="html"><![CDATA[<p>##创建存储过程</p>
+<p>####删除已经存在的存储过程A</p>
+<pre><code class="language-php">drop procedure if exists procedure_name;
+</code></pre>
+<h4 id="设置分割符">设置分割符</h4>
+<pre><code>DELIMITER //
+create procedure procedure_name(IN id INT)
+begin
+-- start transaction
+
+-- 执行的 SQL
+
+-- commit;
+-- rollback
+
+end //
+DELIMITER ; -- 这里有空格
+</code></pre>
+<p>首先改变默认的分隔符为 // 来作为存储过程结束的标识，随后再恢复默认值。</p>
+<h4 id="参数限制">参数限制</h4>
+<p>in: 给参数传入值，定义的参数就得到了值<br>
+out: 模式定义的参数只能在过程体内部赋值，表示该参数可以将某个值传递回调用他的过程（在存储过程内部，该参数初始值为 null，无论调用者是否给存储过程参数设置值）<br>
+inout: 调用者还可以通过 inout 参数传递值给存储过程，也可以从存储过程内部传值给调用者</p>
+<h4 id="参数类型">参数类型</h4>
+<p>MySQL 所有数据类型<br>
+int<br>
+tinyint<br>
+float<br>
+decimal<br>
+varchar<br>
+...</p>
+<p>FIND_IN_SET(str,strlist) 如果字符串str是在的strlist组成的N子串的字符串列表，返回值的范围为1到N<br>
+SELECT FIND_IN_SET('1','1,2,3,4,5');</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[群聊记事(Json 验证/命名方式/closure $this/多维数组去重/清除数据)]]></title>
         <id>https://lonquan.github.io/post/qunliao-1/</id>
@@ -115,6 +619,168 @@ call_user_func($a-&gt;getClosure()-&gt;bindTo($b, $b)); // 顯示 B
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Ubuntu 查看版本]]></title>
+        <id>https://lonquan.github.io/post/ubuntu-get-version/</id>
+        <link href="https://lonquan.github.io/post/ubuntu-get-version/">
+        </link>
+        <updated>2016-05-20T10:23:30.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>vagrant@homestead:~$ cat /proc/version</p>
+</blockquote>
+<pre><code>Linux version 3.19.0-25-generic (buildd@lgw01-20) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #26~14.04.1-Ubuntu SMP Fri Jul 24 21:16:20 UTC 2015
+</code></pre>
+<blockquote>
+<p>vagrant@homestead:~$ uname -a</p>
+</blockquote>
+<pre><code>Linux homestead 3.19.0-25-generic #26~14.04.1-Ubuntu SMP Fri Jul 24 21:16:20 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre>
+<blockquote>
+<p>vagrant@homestead:~$ lsb_release -a</p>
+</blockquote>
+<pre><code>No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 14.04.3 LTS
+Release:	14.04
+Codename:	trusty
+</code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>vagrant@homestead:~$ cat /proc/version</p>
+</blockquote>
+<pre><code>Linux version 3.19.0-25-generic (buildd@lgw01-20) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #26~14.04.1-Ubuntu SMP Fri Jul 24 21:16:20 UTC 2015
+</code></pre>
+<blockquote>
+<p>vagrant@homestead:~$ uname -a</p>
+</blockquote>
+<pre><code>Linux homestead 3.19.0-25-generic #26~14.04.1-Ubuntu SMP Fri Jul 24 21:16:20 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre>
+<blockquote>
+<p>vagrant@homestead:~$ lsb_release -a</p>
+</blockquote>
+<pre><code>No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 14.04.3 LTS
+Release:	14.04
+Codename:	trusty
+</code></pre>
+<!-- more -->
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Laravel 实现子域名或参数多语言]]></title>
+        <id>https://lonquan.github.io/post/laravel-sub-domain-locale/</id>
+        <link href="https://lonquan.github.io/post/laravel-sub-domain-locale/">
+        </link>
+        <updated>2016-05-18T10:18:50.000Z</updated>
+        <summary type="html"><![CDATA[<pre><code class="language-php">//routes.php
+$route-&gt;group(['domain' =&gt; '{lang}.do.com'], function(){});
+
+// middleware
+\Route::current()-&gt;getParameter('lang');
+</code></pre>
+<pre><code class="language-php">&lt;?php
+namespace AppHttpMiddleware;
+
+use Closure;
+use IlluminateSupportFacadesApp;
+
+class LangMiddleware{ 
+    public function handle($request, Closure $next) {
+        $url_array = explode('.', parse_url($request-&gt;url(), PHP_URL_HOST)); 
+        $subdomain = $url_array[0]; 
+        $languages = ['en', 'de']; 
+        
+        if (in_array($subdomain, $languages)) { 
+                App::setLocale($subdomain); 
+        }
+
+        return $next($request); </code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<pre><code class="language-php">//routes.php
+$route-&gt;group(['domain' =&gt; '{lang}.do.com'], function(){});
+
+// middleware
+\Route::current()-&gt;getParameter('lang');
+</code></pre>
+<pre><code class="language-php">&lt;?php
+namespace AppHttpMiddleware;
+
+use Closure;
+use IlluminateSupportFacadesApp;
+
+class LangMiddleware{ 
+    public function handle($request, Closure $next) {
+        $url_array = explode('.', parse_url($request-&gt;url(), PHP_URL_HOST)); 
+        $subdomain = $url_array[0]; 
+        $languages = ['en', 'de']; 
+        
+        if (in_array($subdomain, $languages)) { 
+                App::setLocale($subdomain); 
+        }
+
+        return $next($request); 
+  
+&lt;!-- more --&gt;
+}
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Redis VS KVDB 没有最优的，只有最适合的]]></title>
+        <id>https://lonquan.github.io/post/redis-vs-kvdb/</id>
+        <link href="https://lonquan.github.io/post/redis-vs-kvdb/">
+        </link>
+        <updated>2016-05-02T10:17:16.000Z</updated>
+        <summary type="html"><![CDATA[<p><strong>数据类型</strong></p>
+<p>Redis<br>
+字符串、链表、集合、有序集合、哈希表等多种数据类型、事物、消息订阅与发布等高级功能。支持丰富的数据类型，使用起来更加自由灵活~</p>
+<p>KVDB<br>
+字符串、图片，存放类型简单的数据，如好友关系等。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p><strong>数据类型</strong></p>
+<p>Redis<br>
+字符串、链表、集合、有序集合、哈希表等多种数据类型、事物、消息订阅与发布等高级功能。支持丰富的数据类型，使用起来更加自由灵活~</p>
+<p>KVDB<br>
+字符串、图片，存放类型简单的数据，如好友关系等。</p>
+<!-- more -->
+<hr>
+<p><strong>读写方式</strong></p>
+<p>Redis<br>
+数据全部保存在内存中，周期性写入磁盘。异步读写，速度超级快，至少是KVDB的20倍。使用之后瞬间提速，对速度与性能要求极高的应用可以考虑使用。</p>
+<p>KVDB<br>
+完备的刷写机制，保证数据存储，更加稳定。</p>
+<hr>
+<p><strong>存储容量</strong></p>
+<p>Redis<br>
+存储容量是固定的256M、512M、1G，容量大小固定，可以自己选择超过容量后的删除策略。</p>
+<p>KVDB<br>
+巨大存储容量，支持100G的存储空间，可支持1,000,000,000条记录，几乎随心所欲的大容量~</p>
+<hr>
+<p><strong>使用场景</strong></p>
+<p>Redis<br>
+Redis的角色更像是一个缓冲，在系统出现瓶颈的时候，依托高性能解决瓶颈。可以做数据库、缓存和消息中间件</p>
+<ul>
+<li>排行榜应用</li>
+<li>计数器应用</li>
+<li>数据去重应用</li>
+<li>消息发布、订阅系统</li>
+<li>需要频繁读写的数据</li>
+<li>作为数据持久化的缓冲，解决数据库的写入瓶颈</li>
+<li>依托于Redis的超高性能，让系统的性能瓶颈问题迎刃而解</li>
+</ul>
+<p>KVDB<br>
+KVDB在整个系统中的角色偏向于和MySQL一样，属于数据永久数据库存储</p>
+<ul>
+<li>全表扫描</li>
+<li>范围查找</li>
+<li>Key-Valve数据库</li>
+<li>社交应用</li>
+<li>地图应用</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Redis 的数据导入导出]]></title>
         <id>https://lonquan.github.io/post/redis-de-shu-ju-dao-ru-dao-chu/</id>
         <link href="https://lonquan.github.io/post/redis-de-shu-ju-dao-ru-dao-chu/">
@@ -192,6 +858,68 @@ $2    # 第二参数长度为 1<br>
   new function(){ /* code */ }
   new function(){ /* code */ }() // Only need parens if passing arguments
 </code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关于 MySQL last_insert_id]]></title>
+        <id>https://lonquan.github.io/post/about-mysql-last_insert_id/</id>
+        <link href="https://lonquan.github.io/post/about-mysql-last_insert_id/">
+        </link>
+        <updated>2016-03-02T10:22:55.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>little 神<br>
+id生成器, 替代mysql自带的 auto_increment,  这个业务场景稍微严格点，用 redis 自增没数据库稳妥(一旦redis重启，很难保证不丢几秒的数据。而如果并发量又大，那可能好几百个id重复了)</p>
+</blockquote>
+<p>无锁，也无需事务支持, 有锁的话性能怎么撑得住, 会出现多个 session  同时 update 的情况, 但是这个操作是原子性的，只要你能保证一个操作是原子性的。就不需要锁，也不需要事务<br>
+这个只是生成id。<br>
+至于 insert 记录失败，关这个 id 生成器什么事？<br>
+不用这个 id 跳过去就是了嘛。auto_increatment 不也是一样在 rollback 的时候不会恢复么， id 不一定必须要连续。<br>
+任何业务来问一个id，我给一个新的id + 1给业务，保证并发量再大，都不会给重复就可以了。至于业务用不用这个id，还是中断了还是别的怎么的都不关id生成器的事。低耦合。</p>
+<blockquote>
+<p><a href="http://www.jb51.net/article/28017.htm">参考 http://www.jb51.net/article/28017.htm </a></p>
+</blockquote>
+<p>分表除了表名的索引不同之外，表结构都是一样的，如果各表的‘ID'字段仍采用‘AUTO_INCREMENT'的方式的话，ID就不能唯确定一条记录了。 这时就需要一种处于各个分表之外的机制来生成ID，我们一般采用一张单独的数据表（不妨假设表名为‘ticket_mutex'）来保存这个ID，无论哪个分表有数据增加时，都是先到ticket_mutex表把ID值加1，然后取得ID值。 这个取ID的操作看似很复杂，所幸的是，MySQL提供了LAST_INSERT_ID机制，让我们能一步完成。</p>
+<ol>
+<li><strong>新建数据表ticket_mutex</strong></li>
+</ol>
+<pre><code>CREATE TABLE ticket_mutex ( 
+    name varchar(32) NOT NULL PRIMARY KEY COMMENT '业务名称', 
+    value bigint(20) UNSIGNED NOT NULL COMMENT 'ID值' 
+)Engine=InnoDB DEFAULT CHARSET=UTF8 COMMENT '保存分表ID表'; 
+</code></pre>
+<p>字段‘name'用来说明这个ID是哪个业务的，比如‘用户'的ID，我们可以定为‘USER'； 字段‘value'即该业务的ID值。</p>
+<ol start="2">
+<li><strong>初始化业务和其ID值</strong></li>
+</ol>
+<pre><code>INSERT INTO ticket_mutex(name, value) values('USER', 0),('POST', 0); 
++------+-------+ 
+| name | value | 
++------+-------+ 
+| POST | 0 | 
+| USER | 0 | 
++------+-------+ 
+</code></pre>
+<p>我们初始化了2条记录，即有2个不同的业务，分别代表‘用户信息'和‘主题信息'，它们初始ID值均为‘0'；<br>
+ <br>
+3. <strong>获取分表唯一ID</strong><br>
+这个时候就要利用MySQL提供的LAST_INSERT_ID()机制了。 在往用户表里新增一条数据时，获取‘用户ID'：</p>
+<pre><code>UPDATE ticket_mutex SET value=LAST_INSERT_ID(value+1) WHERE name='USER';
+SELECT LAST_INSERT_ID(); 
++------------------+ 
+| LAST_INSERT_ID() | 
++------------------+ 
+| 1 | 
++------------------+ 
+</code></pre>
+<p>通过这条语句之后，我们得到结果为1，这个值就是我们所需要的值。再来查看数据记录，我们发现记录总数没有改变，但是‘用户'的ID已经为1了； <br>
+**从上可以看出，通过MySQL的LAST_INSERT_ID机制，我们可以保证在记录总数不增长的情况下，让业务ID在不断的增加，从而保证了分表ID的唯一性。 **</p>
+<ol start="4">
+<li><strong>LAST_INSERT_ID说明</strong><br>
+从名字可以看出，LAST_INSERT_ID即为最后插入的ID值，根据MySQL的官方手册说明，它有2种使用方法<br>
+一是不带参数：LAST_INSERT_ID()，这种方法和AUTO_INCREMENT属性一起使用，当往带有‘AUTO_INCREMENT'属性字段的表中新增记录时，LAST_INSERT_ID()即返回该字段的值<br>
+二是带有表达式：如上面介绍的LAST_INSERT_ID(value+1)，它返回的是表达式的值，即‘value+1'；</li>
+</ol>
+<p>5.** 唯一性测试**</p>
 ]]></content>
     </entry>
 </feed>

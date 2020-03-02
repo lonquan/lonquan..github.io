@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 | 半壁峰林-龙权的自留地</title>
+<title>MySQL 存储过程 | 半壁峰林-龙权的自留地</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -32,14 +32,13 @@
 
 
 
-    <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
+    <meta name="description" content="##创建存储过程
+####删除已经存在的存储过程A
+drop procedure if exists procedure_name;
 
-🏠 关于本站
-👨‍💻 博主是谁
-⛹ 兴趣爱好
-📬 联系我呀
-..." />
+设置分割符
+DELIMITER //
+create procedure procedure_name(I..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -121,20 +120,55 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于</h2>
-            <div class="post-date">2019-01-25</div>
+            <h2 class="post-title">MySQL 存储过程</h2>
+            <div class="post-date">2016-07-02</div>
             
             <div class="post-content" v-pre>
-              <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+              <p>##创建存储过程</p>
+<p>####删除已经存在的存储过程A</p>
+<pre><code class="language-php">drop procedure if exists procedure_name;
+</code></pre>
+<h4 id="设置分割符">设置分割符</h4>
+<pre><code>DELIMITER //
+create procedure procedure_name(IN id INT)
+begin
+-- start transaction
+
+-- 执行的 SQL
+
+-- commit;
+-- rollback
+
+end //
+DELIMITER ; -- 这里有空格
+</code></pre>
+<p>首先改变默认的分隔符为 // 来作为存储过程结束的标识，随后再恢复默认值。</p>
+<h4 id="参数限制">参数限制</h4>
+<p>in: 给参数传入值，定义的参数就得到了值<br>
+out: 模式定义的参数只能在过程体内部赋值，表示该参数可以将某个值传递回调用他的过程（在存储过程内部，该参数初始值为 null，无论调用者是否给存储过程参数设置值）<br>
+inout: 调用者还可以通过 inout 参数传递值给存储过程，也可以从存储过程内部传值给调用者</p>
+<h4 id="参数类型">参数类型</h4>
+<p>MySQL 所有数据类型<br>
+int<br>
+tinyint<br>
+float<br>
+decimal<br>
+varchar<br>
+...</p>
+<p>FIND_IN_SET(str,strlist) 如果字符串str是在的strlist组成的N子串的字符串列表，返回值的范围为1到N<br>
+SELECT FIND_IN_SET('1','1,2,3,4,5');</p>
 
             </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://lonquan.github.io/post/qunliao-1/">
+                  <h3 class="post-title">
+                    群聊记事(Json 验证/命名方式/closure $this/多维数组去重/清除数据)
+                  </h3>
+                </a>
+              </div>
             
 
             
