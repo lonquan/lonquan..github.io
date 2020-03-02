@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Redis 的数据导入导出 | 半壁峰林-龙权的自留地</title>
+<title>那些 Laravel 中的黑魔法 | 半壁峰林-龙权的自留地</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -32,11 +32,13 @@
 
 
 
-    <meta name="description" content="开启现有 Redis 实例的 AOF 功能（如果实例已经启用 AOF 功能则忽略此步骤）
+    <meta name="description" content="Laravel 黑魔法
+// 环境判断
+$isLocal = app()-&gt;environment('local');
+$isLocal = app()-&gt;isLocal();
 
-# redis-cli -h ip -p port config set appendonly yes `
-
-通过AOF文件将数据导入到新的 Red..." />
+// find 多主键值
+User::find(..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -118,51 +120,119 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Redis 的数据导入导出</h2>
-            <div class="post-date">2016-03-26</div>
+            <h2 class="post-title">那些 Laravel 中的黑魔法</h2>
+            <div class="post-date">2019-10-24</div>
             
             <div class="post-content" v-pre>
-              <p>开启现有 Redis 实例的 AOF 功能（<em>如果实例已经启用 AOF 功能则忽略此步骤</em>）</p>
-<blockquote>
-<p># redis-cli -h ip -p port config set appendonly yes `</p>
-</blockquote>
-<p>通过AOF文件将数据导入到新的 Redis 实例 (假定生成的 AOF 文件名为 append.aof)</p>
-<blockquote>
-<p># redis-cli -h ip -p 6379 -a pass --pipe &lt; appendonly.aof</p>
-</blockquote>
-<p>####append.aof 文件分析<br>
-假设 redis 内存有「name:Jhon」的键值对，那么进行 AOF 持久化后，AOF 文件有如下内容：</p>
-<p><code>*2 # 2个参数 $6 # 第一个参数长度为 6 SELECT # 第一个参数 $1 # 第二参数长度为 1 8 # 第二参数 *3 # 3个参数 $3 # 第一个参数长度为 4 SET # 第一个参数 $4 # 第二参数长度为 4 name # 第二个参数 $4 # 第三个参数长度为 4 Jhon # 第二参数长度为 4</code><br>
-所以对上面的内容进行恢复，能得到熟悉的一条 redis 命令：SELECT 8;SET name Jhon.<br>
-可以想象的是，redis 遍历内存数据集中的每个 key-value 对，依次写入磁盘中；redis 启动的时候，从 AOF 文件中读取数据，恢复数据。</p>
-<p>修改</p>
-<p>*2     # 2个参数<br>
-$6     # 第一个参数长度为 6<br>
-SELECT     # 第一个参数<br>
-$1     # 第二参数长度为 1<br>
-8     # 第二参数</p>
-<p>为</p>
-<p>*2     # 2个参数<br>
-$6     # 第一个参数长度为 6<br>
-SELECT     # 第一个参数<br>
-$2    # 第二参数长度为 1<br>
-15    # 第二参数</p>
-<p>可以将 数据导入到 15号 db</p>
-<blockquote>
-<p>可能会有多个 select DB, 需要仔细查看</p>
-</blockquote>
-<blockquote>
-<p>redis-cli -h 127.0.0.1 -p 6379 shutdown  停止 redis</p>
-</blockquote>
+              <h1 id="laravel-黑魔法">Laravel 黑魔法</h1>
+<pre><code class="language-php">// 环境判断
+$isLocal = app()-&gt;environment('local');
+$isLocal = app()-&gt;isLocal();
+
+// find 多主键值
+User::find([1, 2, 3]);
+User::findMany([1, 2, 3])
+
+// 自定义宏
+Request::macro('staff', function () {
+    return [];
+});
+\request()-&gt;staff();
+
+// XorY 方法
+// 不不存在则抛出异常
+Model::findOrFail($id, $columns = ['*']);
+// 不不存在则返回⼀一个新的实例例
+Model::findOrNew($id, $columns = ['*']);
+// 不不存在满⾜足条件的则抛出异常
+Model::firstOrFail($columns = ['*']);
+// 不不存在满⾜足条件的则返回⼀一个新的实例例
+Model::firstOrNew(array $attributes, array $values = []);
+// 不不存在满⾜足条件的则返回⼀一个新的实例例并⼊入库
+Model::firstOrCreate(array $attributes, array $values = []);
+// 不不存在满⾜足条件的记录时，交给你的 $callback 处理理
+Model::firstOr($columns = ['*'], Closure $callback = null);
+// 存在则更更新，不不存在则创建
+Model::updateOrCreate(array $attributes, array $values = []);
+
+// 模型事件
+class User extends Model
+{
+    protected static function boot()
+    {
+        parent::boot();
+        static::creating(function($user){ ... });
+        static::created(function($user){ ... });
+        static::saving(function($user){ ... });
+        static::saved(function($user){ ... });
+        static::updating(function($user){ ... });
+        static::updated(function($user){ ... });
+        static::deleting(function($user){ ... });
+        static::deleted(function($user){ ... });
+        static::restoring(function($user){ ... });
+        static::restored(function($user){ ... });
+        static::retrieved(function($user){ ... }); 
+    }
+}
+
+// 模型默认值
+class Task extends Model
+{
+     //...
+    $attributes = [
+        'priority' =&gt; static::PRIORITY_NONE,
+        'visibility' =&gt; static::VISIBILITY_TEAM,
+    ];
+    
+}
+$task = new Task;
+$task-&gt;priority; // 'none'
+$task-&gt;visibility; // 'team'
+
+// Model::when
+$query = Model::query();
+$query-&gt;when(expression, function($q){
+    return $q;
+})
+
+// BelongsTo 默认模型, 带条件与排序的模型关系
+class Post extends Model
+{
+    public function author()
+    {
+        // where('approved', 1)-&gt;orderBy('email');
+        return $this-&gt;belongsTo('App\Author')-&gt;withDefault([
+            'name' =&gt; '⽆无',
+        ]);
+    }
+}
+$post-&gt;author-&gt;name $post-&gt;author-&gt;name ?? '⽆'
+
+// 模型复制
+$newModel = $model-&gt;replicate();
+$newModel-&gt;save();
+
+// 分段查询/处理
+User::chunk(100, function ($users) {
+    foreach ($users as $user) {
+        $user-&gt;refreshProperty();
+    }
+});
+
+// Save 时不更新时间字段 updated_at
+$product = Product::find(1);
+$product-&gt;updated_at = '2018-11-11 11:11:11';
+$product-&gt;save(['timestamps' =&gt; false]);
+</code></pre>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://lonquan.github.io/post/js-immediately-invoke/">
+                <a href="https://lonquan.github.io/post/linux-chang-yong-bei-wang/">
                   <h3 class="post-title">
-                    记录 js 的自执行方式
+                    Linux 常用备忘
                   </h3>
                 </a>
               </div>
