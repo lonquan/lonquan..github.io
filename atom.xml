@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lonquan.github.io</id>
     <title>半壁峰林-龙权的自留地</title>
-    <updated>2020-03-02T10:44:05.192Z</updated>
+    <updated>2020-03-02T10:49:37.435Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lonquan.github.io"/>
     <link rel="self" href="https://lonquan.github.io/atom.xml"/>
@@ -234,33 +234,6 @@
 <blockquote>
 <p>“老师，‘有条不紊’的‘紊’是什么意思？”</p>
 </blockquote>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Ubuntu 查看版本]]></title>
-        <id>https://lonquan.github.io/post/ubuntu-cha-kan-ban-ben/</id>
-        <link href="https://lonquan.github.io/post/ubuntu-cha-kan-ban-ben/">
-        </link>
-        <updated>2017-03-02T10:23:30.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>vagrant@homestead:~$ cat /proc/version</p>
-</blockquote>
-<pre><code>Linux version 3.19.0-25-generic (buildd@lgw01-20) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #26~14.04.1-Ubuntu SMP Fri Jul 24 21:16:20 UTC 2015
-</code></pre>
-<blockquote>
-<p>vagrant@homestead:~$ uname -a</p>
-</blockquote>
-<pre><code>Linux homestead 3.19.0-25-generic #26~14.04.1-Ubuntu SMP Fri Jul 24 21:16:20 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
-</code></pre>
-<blockquote>
-<p>vagrant@homestead:~$ lsb_release -a</p>
-</blockquote>
-<pre><code>No LSB modules are available.
-Distributor ID:	Ubuntu
-Description:	Ubuntu 14.04.3 LTS
-Release:	14.04
-Codename:	trusty
-</code></pre>
 ]]></content>
     </entry>
     <entry>
@@ -670,6 +643,26 @@ SELECT LAST_INSERT_ID();
 二是带有表达式：如上面介绍的LAST_INSERT_ID(value+1)，它返回的是表达式的值，即‘value+1'；</li>
 </ol>
 <p>5.** 唯一性测试**</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[PHP 各扩展安装]]></title>
+        <id>https://lonquan.github.io/post/php-install-extensions/</id>
+        <link href="https://lonquan.github.io/post/php-install-extensions/">
+        </link>
+        <updated>2015-03-02T10:28:28.000Z</updated>
+        <content type="html"><![CDATA[<p>http://www.php.net/distributions/php-$version.tar.gz</p>
+<h3 id="bcmath">bcmath</h3>
+<pre><code>/ext/bcmath
+phpize
+which php-config
+./configure --with-php-config=/usr/local/php/bin/php-config
+make
+make test
+make install
+
+echo &quot;extension=bcmath.so&quot; &gt;&gt; /etc/php.ini
+</code></pre>
 ]]></content>
     </entry>
 </feed>
