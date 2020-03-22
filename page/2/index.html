@@ -13,7 +13,7 @@
 
 -->
 
-<link rel="shortcut icon" href="https://lonquan.github.io/favicon.ico?v=1583243168570">
+<link rel="shortcut icon" href="https://lonquan.github.io/favicon.ico?v=1584864545738">
 <link rel="stylesheet" href="https://lonquan.github.io/styles/main.css">
 
 
@@ -40,7 +40,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://lonquan.github.io">
-        <img src="https://lonquan.github.io/images/avatar.png?v=1583243168570" class="site-logo">
+        <img src="https://lonquan.github.io/images/avatar.png?v=1584864545738" class="site-logo">
         <h1 class="site-title">半壁峰林-龙权的自留地</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -111,6 +111,47 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://lonquan.github.io/post/laravel-sub-domain-locale/">
+                  <h2 class="post-title">Laravel 实现子域名或参数多语言</h2>
+                </a>
+                <div class="post-date">
+                  2016-05-18
+                </div>
+                <div class="post-abstract">
+                  <pre><code class="language-php">//routes.php
+$route-&gt;group(['domain' =&gt; '{lang}.do.com'], function(){});
+
+// middleware
+\Route::current()-&gt;getParameter('lang');
+</code></pre>
+
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://lonquan.github.io/post/redis-vs-kvdb/">
+                  <h2 class="post-title">Redis VS KVDB 没有最优的，只有最适合的</h2>
+                </a>
+                <div class="post-date">
+                  2016-05-02
+                </div>
+                <div class="post-abstract">
+                  <p><strong>数据类型</strong></p>
+<p>Redis<br>
+字符串、链表、集合、有序集合、哈希表等多种数据类型、事物、消息订阅与发布等高级功能。支持丰富的数据类型，使用起来更加自由灵活~</p>
+<p>KVDB<br>
+字符串、图片，存放类型简单的数据，如好友关系等。</p>
+
+                </div>
+              </div>
+              
+            </article>
           
             <article class="post-item">
               <div class="left">

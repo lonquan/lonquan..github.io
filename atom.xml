@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lonquan.github.io</id>
     <title>半壁峰林-龙权的自留地</title>
-    <updated>2020-03-03T13:46:32.625Z</updated>
+    <updated>2020-03-22T08:09:08.159Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lonquan.github.io"/>
     <link rel="self" href="https://lonquan.github.io/atom.xml"/>
@@ -11,7 +11,59 @@
     <icon>https://lonquan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 半壁峰林-龙权的自留地</rights>
     <entry>
-        <title type="html"><![CDATA[蚂蚁看点：腾讯看点直播入驻流程及商家答疑]]></title>
+        <title type="html"><![CDATA[「小程序直播」支持服务商接入]]></title>
+        <id>https://lonquan.github.io/post/xiao-cheng-xu-zhi-bo-zhi-chi-fu-wu-shang-jie-ru/</id>
+        <link href="https://lonquan.github.io/post/xiao-cheng-xu-zhi-bo-zhi-chi-fu-wu-shang-jie-ru/">
+        </link>
+        <updated>2020-03-22T07:59:52.000Z</updated>
+        <content type="html"><![CDATA[<p>各位微信开发者：<br>
+<code>小程序直播</code>功能正在公测中，目前已支持服务商接入。<br>
+服务商申请权限之后，可帮助商户快速实现小程序直播功能。</p>
+<h2 id="功能简介">功能简介</h2>
+<p><code>小程序直播</code>是微信官方提供的商家经营工具。符合接入要求的商家，通过直播组件，可以在小程序中实现直播互动与商品销售的闭环。</p>
+<h2 id="商户准入要求">商户准入要求</h2>
+<p>满足以下条件的电商平台、自营商家，即有机会被邀请到小程序直播公测中来：</p>
+<blockquote>
+<p>同时满足以下1、2、3条件，加上4、5、6条件的其中之一即可。</p>
+</blockquote>
+<ol>
+<li>满足小程序18个开放类目（包括：电商平台、商家自营-百货、食品、初级食用农产品、酒/盐、图书报刊/音像/影视/游戏/动漫、汽车/其他交通工具的配件、服装/鞋/箱包、玩具/母婴用品(不含食品)、家电/数码/手机、美妆/洗护、珠宝/饰品/眼镜/钟表、运动/户外/乐器、鲜花/园艺/工艺品、家居/家饰/家纺、汽车内饰/外饰、办公/文具、机械/电子器件）</li>
+<li>主体下小程序近半年没有严重违规</li>
+<li>小程序近90天存在支付行为</li>
+<li>主体下公众号累计粉丝数大于100</li>
+<li>主体下小程序近7日dau大于100</li>
+<li>主体在微信生态内近一年广告投放实际消耗金额大于1w</li>
+</ol>
+<h2 id="服务商接入指引">服务商接入指引</h2>
+<p>具体接入指引请参考<a href="https://docs.qq.com/doc/DZHJ6Z0hNWWRUVk94">【小程序直播】服务商接入指引</a>，以下为服务商接入步骤。</p>
+<ol>
+<li>权限申请
+<ol>
+<li>在问卷<a href="https://wj.qq.com/s2/5542558/8d04/">服务商“小程序直播”接入申请</a>填写相关信息并等待权限开通，发送申请后7个工作日内，可登陆微信开放平台查看第三方平台权限集并勾选<code>小程序直播</code>能力；</li>
+<li>开通后，即可登陆<a href="https://open.weixin.qq.com/">微信开放平台</a>勾选<code>小程序直播</code>第三方权限集并全网发布；</li>
+</ol>
+</li>
+<li>功能开发<br>
+小程序直播需要实现【直播组件】与【后台API】两个部分，其中组件部分需要在小程序中进行配置开发。具体开发文档，请参考<a href="https://docs.qq.com/doc/DZHhzV0FiYXRQV01i">小程序直播组件接入指引</a>。</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[node cli error]]></title>
+        <id>https://lonquan.github.io/post/node-cli-error/</id>
+        <link href="https://lonquan.github.io/post/node-cli-error/">
+        </link>
+        <updated>2020-03-03T18:12:35.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>npm WARN lifecycle The node binary used for scripts is /path/detail/ but npm is using /usr/local/path/node itself. Use the <code>--scripts-prepend-node-path</code> option to include the path for the node binary npm was executed with.</p>
+</blockquote>
+<blockquote>
+<p>npm config set scripts-prepend-node-path true</p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[腾讯看点直播入驻流程及商家答疑]]></title>
         <id>https://lonquan.github.io/post/ma-yi-kan-dian-teng-xun-kan-dian-zhi-bo-ru-zhu-liu-cheng-ji-shang-jia-da-yi/</id>
         <link href="https://lonquan.github.io/post/ma-yi-kan-dian-teng-xun-kan-dian-zhi-bo-ru-zhu-liu-cheng-ji-shang-jia-da-yi/">
         </link>
@@ -888,102 +940,6 @@ Description:	Ubuntu 14.04.3 LTS
 Release:	14.04
 Codename:	trusty
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Laravel 实现子域名或参数多语言]]></title>
-        <id>https://lonquan.github.io/post/laravel-sub-domain-locale/</id>
-        <link href="https://lonquan.github.io/post/laravel-sub-domain-locale/">
-        </link>
-        <updated>2016-05-18T10:18:50.000Z</updated>
-        <summary type="html"><![CDATA[<pre><code class="language-php">//routes.php
-$route-&gt;group(['domain' =&gt; '{lang}.do.com'], function(){});
-
-// middleware
-\Route::current()-&gt;getParameter('lang');
-</code></pre>
-]]></summary>
-        <content type="html"><![CDATA[<pre><code class="language-php">//routes.php
-$route-&gt;group(['domain' =&gt; '{lang}.do.com'], function(){});
-
-// middleware
-\Route::current()-&gt;getParameter('lang');
-</code></pre>
-<!-- more -->
-<pre><code class="language-php">&lt;?php
-namespace AppHttpMiddleware;
-
-use Closure;
-use IlluminateSupportFacadesApp;
-
-class LangMiddleware{ 
-    public function handle($request, Closure $next) {
-        $url_array = explode('.', parse_url($request-&gt;url(), PHP_URL_HOST)); 
-        $subdomain = $url_array[0]; 
-        $languages = ['en', 'de']; 
-        
-        if (in_array($subdomain, $languages)) { 
-                App::setLocale($subdomain); 
-        }
-
-        return $next($request); 
-}
-}
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Redis VS KVDB 没有最优的，只有最适合的]]></title>
-        <id>https://lonquan.github.io/post/redis-vs-kvdb/</id>
-        <link href="https://lonquan.github.io/post/redis-vs-kvdb/">
-        </link>
-        <updated>2016-05-02T10:17:16.000Z</updated>
-        <summary type="html"><![CDATA[<p><strong>数据类型</strong></p>
-<p>Redis<br>
-字符串、链表、集合、有序集合、哈希表等多种数据类型、事物、消息订阅与发布等高级功能。支持丰富的数据类型，使用起来更加自由灵活~</p>
-<p>KVDB<br>
-字符串、图片，存放类型简单的数据，如好友关系等。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p><strong>数据类型</strong></p>
-<p>Redis<br>
-字符串、链表、集合、有序集合、哈希表等多种数据类型、事物、消息订阅与发布等高级功能。支持丰富的数据类型，使用起来更加自由灵活~</p>
-<p>KVDB<br>
-字符串、图片，存放类型简单的数据，如好友关系等。</p>
-<!-- more -->
-<hr>
-<p><strong>读写方式</strong></p>
-<p>Redis<br>
-数据全部保存在内存中，周期性写入磁盘。异步读写，速度超级快，至少是KVDB的20倍。使用之后瞬间提速，对速度与性能要求极高的应用可以考虑使用。</p>
-<p>KVDB<br>
-完备的刷写机制，保证数据存储，更加稳定。</p>
-<hr>
-<p><strong>存储容量</strong></p>
-<p>Redis<br>
-存储容量是固定的256M、512M、1G，容量大小固定，可以自己选择超过容量后的删除策略。</p>
-<p>KVDB<br>
-巨大存储容量，支持100G的存储空间，可支持1,000,000,000条记录，几乎随心所欲的大容量~</p>
-<hr>
-<p><strong>使用场景</strong></p>
-<p>Redis<br>
-Redis的角色更像是一个缓冲，在系统出现瓶颈的时候，依托高性能解决瓶颈。可以做数据库、缓存和消息中间件</p>
-<ul>
-<li>排行榜应用</li>
-<li>计数器应用</li>
-<li>数据去重应用</li>
-<li>消息发布、订阅系统</li>
-<li>需要频繁读写的数据</li>
-<li>作为数据持久化的缓冲，解决数据库的写入瓶颈</li>
-<li>依托于Redis的超高性能，让系统的性能瓶颈问题迎刃而解</li>
-</ul>
-<p>KVDB<br>
-KVDB在整个系统中的角色偏向于和MySQL一样，属于数据永久数据库存储</p>
-<ul>
-<li>全表扫描</li>
-<li>范围查找</li>
-<li>Key-Valve数据库</li>
-<li>社交应用</li>
-<li>地图应用</li>
-</ul>
 ]]></content>
     </entry>
 </feed>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>PHP 各扩展安装 | 半壁峰林-龙权的自留地</title>
+<title>js | 半壁峰林-龙权的自留地</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -17,13 +17,6 @@
 <link rel="stylesheet" href="https://lonquan.github.io/styles/main.css">
 
 
-  
-    <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" /> -->
-    <link href="https://cdn.bootcss.com/gitalk/1.6.2/gitalk.min.css" rel="stylesheet">
-  
-
-  
-
 
 <link href="https://cdn.bootcss.com/aos/3.0.0-beta.6/aos.css" rel="stylesheet">
 <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
@@ -32,13 +25,7 @@
 
 
 
-    <meta name="description" content="http://www.php.net/distributions/php-$version.tar.gz
-bcmath
-/ext/bcmath
-phpize
-which php-config
-./configure --with-php-c..." />
-    <meta name="keywords" content="php" />
+    <meta name="description" content="半壁峰林-龙权的自留地">
   </head>
   <body>
     <div id="app" class="main">
@@ -118,45 +105,28 @@ which php-config
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">PHP 各扩展安装</h2>
-            <div class="post-date">2015-03-02</div>
-            
-            <div class="post-content" v-pre>
-              <p>http://www.php.net/distributions/php-$version.tar.gz</p>
-<h3 id="bcmath">bcmath</h3>
-<pre><code>/ext/bcmath
-phpize
-which php-config
-./configure --with-php-config=/usr/local/php/bin/php-config
-make
-make test
-make install
-
-echo &quot;extension=bcmath.so&quot; &gt;&gt; /etc/php.ini
-</code></pre>
-
-            </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://lonquan.github.io/tag/php/" class="tag">
-                    php
-                  </a>
-                
+          <h2 class="current-tag">标签: js</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://lonquan.github.io/post/node-cli-error/">
+                  <h2 class="post-title">node cli error</h2>
+                </a>
+                <div class="post-date">
+                  2020-03-04
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
               </div>
-            
-            
-
-            
               
-                <div id="gitalk-container" data-aos="fade-in"></div>
-              
+            </article>
+          
 
-              
-            
-
-          </div>
+          <div class="pagination-container">
+  
+  
+</div>
 
         </div>
       </div>
@@ -184,30 +154,6 @@ var app = new Vue({
     hljs.initHighlightingOnLoad()
   </script>
 
-
-
-
-  
-    <!-- <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> -->
-    <script src="https://cdn.bootcss.com/gitalk/1.6.2/gitalk.min.js"></script>
-    <script>
-
-      var gitalk = new Gitalk({
-        clientID: '7e83f01bab75575755bb',
-        clientSecret: 'e39dfb6cfb4f8a31e873aa57c1cf9b76b9cf515d',
-        repo: 'lonquan.github.io',
-        owner: 'lonquan',
-        admin: ['lonquan'],
-        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-        distractionFreeMode: false  // Facebook-like distraction free mode
-      })
-
-      gitalk.render('gitalk-container')
-
-    </script>
-  
-
-  
 
 
 
